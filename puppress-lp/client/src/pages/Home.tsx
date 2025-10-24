@@ -102,6 +102,13 @@ export default function Home() {
                   alt="ダイジェザイムがたんぱく質を小さく分解するイメージ" 
                   className="w-full h-48 object-contain rounded-lg"
                 />
+                <div className="max-w-4xl mx-auto mb-12">
+                  <img 
+                    src="/images/digezyme_cut.jpg" 
+                    alt="消化器官の経路図觢" 
+                    className="w-full h-auto rounded-xl shadow-lg"
+                  />
+                </div>
 
                 <h3 className="text-2xl font-bold text-gray-900">
                   消化を助ける酵素アプローチ
