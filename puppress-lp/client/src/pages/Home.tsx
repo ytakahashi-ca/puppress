@@ -20,39 +20,28 @@ export default function Home() {
                 <span className="text-blue-600">臭いが気になる</span><br />
                 そんな方へ。
               </h1>
+
               <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                PupPress（プップレス）は、<br />
-                プロテインを飲む方のための<br />
-                <span className="font-bold text-blue-600">消化サポート × 乳酸菌ケアサプリ</span>です。
+                “プロテイン習慣特化型“<br />
+                <span className="font-bold text-blue-600">消化サポート × 乳酸菌サプリメント</span>
               </p>
+
               <p className="text-lg text-gray-700">
-                たんぱく質をしっかり摂りながら、<br />
-                毎日をすっきり快適に過ごすためのサポートをします。
+                たんぱく質の分解をサポートし、<br />
+                理想の姿を目指すあなたの味方になります！
               </p>
-              <div className="space-y-4">
-                <div className="inline-block bg-red-50 px-4 py-2 rounded-lg">
-                  <p className="text-red-600 font-bold">【数量限定】先行案内受付中</p>
-                </div>
-                <a
-                  href="https://lin.ee/fnXZ2bk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="lg"
-                    className="w-full lg:w-auto text-lg px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
-                  >
-                    無料でLINE登録して特典を受け取る
-                  </Button>
-                </a>
-              </div>
             </div>
+
             <div className="relative">
               <img
                 src="/images/product-package.png"
                 alt="PUPPRESS プロテイン習慣サポートサプリメント"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
+              {/* 信頼ピル（任意） */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border rounded-full px-4 py-2 text-sm shadow">
+                国産・GMP認証工場 / 管理栄養士監修
+              </div>
             </div>
           </div>
         </div>
@@ -82,15 +71,48 @@ export default function Home() {
           </div>
           <div className="max-w-3xl mx-auto bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
             <p className="text-lg text-gray-800 leading-relaxed">
-              これらは、たんぱく質摂取によって<span className="font-bold text-blue-600">腸に負担がかかっているサイン</span>とも言われています。
-            </p>
-            <p className="text-gray-700 mt-2">
-              PupPressは、プロテイン習慣をより快適に続けたい方をサポートします。
+              これらは、過剰なたんぱく質摂取によって<span className="font-bold text-blue-600">体に負担がかかっているサイン</span>かもしれません
             </p>
           </div>
         </div>
       </section>
 
+
+      <section className="py-20 bg-white">
+        <div className="container text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-12">
+            プップレスだけの<br />
+            <span className="text-blue-600">“プロテイン習慣”</span>に特化した3つのアプローチ！
+          </h2>
+
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div className="bg-blue-50 rounded-xl p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-blue-700 mb-4">① 消化酵素アプローチ</h3>
+              <p className="text-gray-700">
+                ダイジェザイム®が、たんぱく質を細かく分解し吸収しやすく。<br />
+                未消化のまま腸に届く量を減らします。
+              </p>
+            </div>
+
+            <div className="bg-green-50 rounded-xl p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-green-700 mb-4">② 腸内バランスアプローチ</h3>
+              <p className="text-gray-700">
+                ナノ型乳酸菌KS-1とオリゴ糖で、善玉菌をサポート。<br />
+                腸内バランスを整え、ガスや張りの起きにくい環境へ。
+              </p>
+            </div>
+
+            <div className="bg-orange-50 rounded-xl p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-orange-700 mb-4">③ クオリティアプローチ</h3>
+              <p className="text-gray-700">
+                国産GMP認証工場で製造、管理栄養士監修。<br />
+                毎日安心して続けられる品質を追求しました。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* セクション2: 原因 */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -112,6 +134,96 @@ export default function Home() {
               人工甘味料の摂取や過剰なたんぱく質も<span className="font-bold">腸バランスを乱す要因</span>に。
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* セクション2の直後に追加：Why Gas（原因の要点整理） */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <h2 className="text-2xl lg:text-4xl font-bold text-center text-gray-900 mb-6">
+            なぜ<span className="text-blue-600">おなら</span>が増えるの？
+          </h2>
+          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-gray-800">
+            <div className="bg-gray-50 border rounded-xl p-6">
+              <p className="font-bold mb-2">① 未消化たんぱく質が大腸へ</p>
+              <p className="text-sm leading-relaxed">
+                大量摂取などで分解が追いつかないと、たんぱく質の一部が未消化のまま大腸へ届くことがあります。
+              </p>
+            </div>
+            <div className="bg-gray-50 border rounded-xl p-6">
+              <p className="font-bold mb-2">② 腸内細菌が“発酵の材料”に</p>
+              <p className="text-sm leading-relaxed">
+                大腸で腸内細菌が未消化たんぱく質を分解し、ガスやにおいのもととなる物質が生まれることがあります。
+              </p>
+            </div>
+            <div className="bg-gray-50 border rounded-xl p-6">
+              <p className="font-bold mb-2">③ 個人差・食事バランスの影響</p>
+              <p className="text-sm leading-relaxed">
+                繊維や水分量、人工甘味料の種類、腸内環境などによって感じ方は人それぞれ異なります。
+              </p>
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 text-center mt-4">
+            ※一般的な栄養知識にもとづく説明です。個人差があります。
+          </p>
+        </div>
+      </section>
+
+      {/* メカニズム図解：Support（ダイジェザイム＋乳酸菌の“加勢”） */}
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container">
+          <h2 className="text-2xl lg:text-4xl font-bold text-center text-gray-900 mb-4">
+            だから、<span className="text-blue-600">プップレス</span>はこうサポート
+          </h2>
+          <p className="text-center text-gray-600 mb-10 text-sm">
+            ※以下は一般的メカニズムの説明です（効果効能を保証するものではありません）
+          </p>
+
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+            {/* 左：ダイジェザイム（プロテアーゼ） */}
+            <div className="bg-white border rounded-2xl p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                ① ダイジェザイム®（消化酵素）が<span className="text-amber-600">鎖を小さく</span>
+              </h3>
+              <div className="space-y-3 text-sm text-gray-700 mb-6">
+                <p>・プロテアーゼがたんぱく質のペプチド結合を“カット”し、ペプチド／アミノ酸へ。</p>
+                <p>・小腸で吸収されやすい形に整え、未消化のまま大腸へ届く量に配慮。</p>
+              </div>
+              <div className="bg-gray-50 border rounded-xl p-4 text-sm">
+                <div className="flex flex-col md:flex-row items-center gap-3">
+                  <span className="font-semibold">プロテイン</span>
+                  <span className="text-2xl">→</span>
+                  <span className="font-semibold text-amber-700">ダイジェザイム®（プロテアーゼ）</span>
+                  <span className="text-2xl">→</span>
+                  <span className="font-semibold">ペプチド／アミノ酸（吸収へ）</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 右：乳酸菌＋オリゴ糖 */}
+            <div className="bg-white border rounded-2xl p-8 shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                ② 乳酸菌＋オリゴ糖で<span className="text-blue-600">環境づくり</span>
+              </h3>
+              <div className="space-y-3 text-sm text-gray-700 mb-6">
+                <p>・オリゴ糖が善玉菌のエサになり、乳酸菌と併せて腸内バランスをサポート。</p>
+                <p>・毎日のプロテイン習慣を続けやすい環境づくりに配慮。</p>
+              </div>
+              <div className="bg-gray-50 border rounded-xl p-4 text-sm">
+                <div className="flex flex-col md:flex-row items-center gap-3">
+                  <span className="font-semibold">オリゴ糖</span>
+                  <span className="text-2xl">→</span>
+                  <span className="font-semibold text-blue-700">善玉菌のはたらきに加勢</span>
+                  <span className="text-2xl">→</span>
+                  <span className="font-semibold">バランス維持をサポート</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-center text-gray-800 mt-10 text-sm">
+            ポイント：<span className="font-bold">“材料を小さくする”×“環境をととのえる”</span>の二本立てで、プロテイン習慣をやさしく後押し。
+          </p>
         </div>
       </section>
 
