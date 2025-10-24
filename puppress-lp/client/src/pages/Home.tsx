@@ -79,36 +79,84 @@ export default function Home() {
 
 
       <section className="py-20 bg-white">
-        <div className="container text-center">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-12">
-            プップレスだけの<br />
-            <span className="text-blue-600">“プロテイン習慣”</span>に特化した3つのアプローチ！
+        <div className="container">
+          {/* タイトル＆サブタイトル */}
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-center text-gray-900 mb-4">
+            だから<span className="text-blue-600">プップレス！</span>
           </h2>
+          <p className="text-xl lg:text-2xl text-center text-gray-700 mb-16">
+            “プロテイン習慣”に特化した<span className="font-semibold">3つのアプローチ</span>
+          </p>
 
-          <div className="grid lg:grid-cols-3 gap-10">
-            <div className="bg-blue-50 rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold text-blue-700 mb-4">① 消化酵素アプローチ</h3>
-              <p className="text-gray-700">
-                ダイジェザイム®が、たんぱく質を細かく分解し吸収しやすく。<br />
-                未消化のまま腸に届く量を減らします。
-              </p>
-            </div>
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* アプローチ1：ダイジェザイム */}
+            <Card className="border-2 hover:shadow-2xl transition-shadow">
+              <CardContent className="p-8 space-y-6">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl font-bold text-blue-600">
+                  01
+                </div>
 
-            <div className="bg-green-50 rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold text-green-700 mb-4">② 腸内バランスアプローチ</h3>
-              <p className="text-gray-700">
-                ナノ型乳酸菌KS-1とオリゴ糖で、善玉菌をサポート。<br />
-                腸内バランスを整え、ガスや張りの起きにくい環境へ。
-              </p>
-            </div>
+                {/* イラスト画像差し替え */}
+                <img 
+                  src="/images/digezyme_cut.jpg" 
+                  alt="ダイジェザイムがたんぱく質を小さく分解するイメージ" 
+                  className="w-full h-48 object-contain rounded-lg"
+                />
 
-            <div className="bg-orange-50 rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-bold text-orange-700 mb-4">③ クオリティアプローチ</h3>
-              <p className="text-gray-700">
-                国産GMP認証工場で製造、管理栄養士監修。<br />
-                毎日安心して続けられる品質を追求しました。
-              </p>
-            </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  消化を助ける酵素アプローチ
+                </h3>
+
+                {/* 新しい説明文 */}
+                <p className="text-gray-700 leading-relaxed">
+                  プロテインによって体に運ばれてくる、たくさんのたんぱく質。<br />
+                  消化しきれず腸に届くと、ガスやお腹の張りに繋がることも。<br />
+                  消化酵素「ダイジェザイム®」が、吸収されやすい形に整えるサポートをします。
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* アプローチ2：乳酸菌 */}
+            <Card className="border-2 hover:shadow-2xl transition-shadow">
+              <CardContent className="p-8 space-y-6">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl font-bold text-green-600">
+                  02
+                </div>
+                <img 
+                  src="/images/probiotics-realistic.jpg" 
+                  alt="乳酸菌KS-1" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <h3 className="text-2xl font-bold text-gray-900">
+                  腸をととのえる乳酸菌アプローチ
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  耐酸性ナノ型乳酸菌「KS-1」とオリゴ糖を配合。<br />
+                  善玉菌をサポートし、腸内バランスを整えることで、快適な毎日を後押しします。
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* アプローチ3：品質 */}
+            <Card className="border-2 hover:shadow-2xl transition-shadow">
+              <CardContent className="p-8 space-y-6">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-3xl font-bold text-orange-600">
+                  03
+                </div>
+                <img 
+                  src="/images/factory.jpg" 
+                  alt="GMP認証工場" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <h3 className="text-2xl font-bold text-gray-900">
+                  毎日続けられるクオリティアプローチ
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  国内GMP認証工場で製造、管理栄養士監修のもと品質を徹底。<br />
+                  毎日安心して続けられる、プロテイン習慣専用の設計です。
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -180,25 +228,7 @@ export default function Home() {
           </p>
 
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
-            {/* 左：ダイジェザイム（プロテアーゼ） */}
-            <div className="bg-white border rounded-2xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                ① ダイジェザイム®（消化酵素）が<span className="text-amber-600">鎖を小さく</span>
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700 mb-6">
-                <p>・プロテアーゼがたんぱく質のペプチド結合を“カット”し、ペプチド／アミノ酸へ。</p>
-                <p>・小腸で吸収されやすい形に整え、未消化のまま大腸へ届く量に配慮。</p>
-              </div>
-              <div className="bg-gray-50 border rounded-xl p-4 text-sm">
-                <div className="flex flex-col md:flex-row items-center gap-3">
-                  <span className="font-semibold">プロテイン</span>
-                  <span className="text-2xl">→</span>
-                  <span className="font-semibold text-amber-700">ダイジェザイム®（プロテアーゼ）</span>
-                  <span className="text-2xl">→</span>
-                  <span className="font-semibold">ペプチド／アミノ酸（吸収へ）</span>
-                </div>
-              </div>
-            </div>
+            
 
             {/* 右：乳酸菌＋オリゴ糖 */}
             <div className="bg-white border rounded-2xl p-8 shadow-sm">
