@@ -95,13 +95,10 @@ export default function Home() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl font-bold text-blue-600">
                   01
                 </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  消化を助ける酵素アプローチ
+                </h3>
 
-                {/* イラスト画像差し替え */}
-                <img 
-                  src="/images/digezyme_cut.jpg" 
-                  alt="ダイジェザイムがたんぱく質を小さく分解するイメージ" 
-                  className="w-full h-48 object-contain rounded-lg"
-                />
                 <div className="max-w-4xl mx-auto mb-12">
                   <img 
                     src="/images/digezyme_cut.jpg" 
@@ -110,15 +107,10 @@ export default function Home() {
                   />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900">
-                  消化を助ける酵素アプローチ
-                </h3>
-
-                {/* 新しい説明文 */}
                 <p className="text-gray-700 leading-relaxed">
                   プロテインによって体に運ばれてくる、たくさんのたんぱく質。<br />
-                  消化しきれず腸に届くと、ガスやお腹の張りに繋がることも。<br />
-                  消化酵素「ダイジェザイム®」が、吸収されやすい形に整えるサポートをします。
+                  消化しきれず腸に届くと、<b>ガス</b>や<b>お腹の張り</b>に繋がることも。<br />
+                  消化酵素<b>「ダイジェザイム®」</b>が、吸収されやすい形に整えるサポートをします。
                 </p>
               </CardContent>
             </Card>
