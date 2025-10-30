@@ -40,5 +40,5 @@ externalPort = 3000
 
 [deployment]
 deploymentTarget = "autoscale"
-build = ["sh", "-c", "pnpm install && pnpm run build"]
-run = ["sh", "-c", "pnpm run start"]
+build = ["sh", "-c", "cd puppress-lp && pnpm install && pnpm run build"]
+run = ["sh", "-c", "cd puppress-lp && pnpm run start"]
