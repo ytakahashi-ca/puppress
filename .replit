@@ -1,3 +1,4 @@
+projectRoot = "puppress-lp"
 modules = ["nodejs-20", "web"]
 [agent]
 expertMode = true
@@ -39,5 +40,5 @@ externalPort = 3000
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["bash", "-c", "cd puppress-lp && pnpm run start"]
-build = ["bash", "-c", "cd puppress-lp && pnpm install && pnpm run build"]
+build = ["sh", "-c", "pnpm install && pnpm run build"]
+run = ["sh", "-c", "pnpm run start"]

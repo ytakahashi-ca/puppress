@@ -11,13 +11,13 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
       <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
-        <div className="container">
+        <div className="container max-w-6xl"> {/* 追加: 最大幅を控えめに */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-xl"> {/* 追加: 左カラムの行幅を制限 */}
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                プロテインを飲むと<br />
-                <span className="text-blue-600">お腹が張る</span>・<br />
-                <span className="text-blue-600">臭いが気になる</span><br />
+                プロテインを飲むと<br className="sm:hidden" />
+                <span className="text-blue-600">お腹が張る</span>・<br className="sm:hidden" />
+                <span className="text-blue-600">臭いが気になる</span><br className="sm:hidden" />
                 そんな方へ。
               </h1>
 
@@ -30,6 +30,31 @@ export default function Home() {
                 たんぱく質の分解をサポートし、<br />
                 理想の姿を目指すあなたの味方になります！
               </p>
+
+              {/* ✅ レスポンシブ対応したCTA */}
+              <div className="pt-8 sm:pt-4">
+                <a
+                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero"
+                  target="_blank" rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button
+                    size="lg"
+                    className="
+                      w-full text-base sm:text-lg py-5 sm:py-6 rounded-2xl leading-relaxed
+                      bg-gradient-to-r from-orange-500 to-red-500
+                      hover:from-orange-600 hover:to-red-600
+                      shadow-lg whitespace-normal break-words leading-snug
+                    "
+                  >
+                    🎁 数量限定！<br className="sm:hidden" />
+                    先行発売クーポンをLINEで受け取る
+                  </Button>
+                </a>
+                <p className="text-sm text-gray-600 mt-2 text-center sm:text-left">
+                  登録後すぐに先行発売情報をお届けします
+                </p>
+              </div>
             </div>
 
             <div className="relative">
@@ -38,7 +63,6 @@ export default function Home() {
                 alt="PUPPRESS プロテイン習慣サポートサプリメント"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
-              {/* 信頼ピル（任意） */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border rounded-full px-4 py-2 text-sm shadow">
                 国産・GMP認証工場 / 管理栄養士監修
               </div>
@@ -77,6 +101,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* セクション2: 原因 */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-8">
+            プロテイン＝高タンパク＝<span className="text-red-600">高負荷</span>
+          </h2>
+          <div className="max-w-4xl mx-auto mb-12">
+            <img 
+              src="/images/digestive-diagram-ja.png" 
+              alt="消化器官の経路" 
+              className="w-full h-auto rounded-xl shadow-lg"
+            />
+          </div>
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
+            <p className="leading-relaxed">
+              消化しきれないたんぱく質が腸に届くと、<span className="font-bold text-red-600">腸内の一部の菌の働きでガスが生じることも</span>。
+            </p>
+            <p className="leading-relaxed">
+              人工甘味料の摂取や過剰なたんぱく質も<span className="font-bold">腸バランスを乱す要因</span>になる可能性もあります。
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       <section className="py-20 bg-white">
         <div className="container">
@@ -102,7 +150,7 @@ export default function Home() {
                 <div className="max-w-4xl mx-auto mb-12">
                   <img 
                     src="/images/digezyme_cut.jpg" 
-                    alt="消化器官の経路図觢" 
+                    alt="消化器官の経路" 
                     className="w-full h-auto rounded-xl shadow-lg"
                   />
                 </div>
@@ -110,7 +158,7 @@ export default function Home() {
                 <p className="text-gray-700 leading-relaxed">
                   プロテインによって体に運ばれてくる、たくさんのたんぱく質。<br />
                   消化しきれず腸に届くと、<b>ガス</b>や<b>お腹の張り</b>に繋がることも。<br />
-                  消化酵素<b>「ダイジェザイム®」</b>が、吸収されやすい形に整えるサポートをします。
+                  消化酵素<b>「ダイジェザイム®」</b>が、タンパク質を小さくする働きをサポートをします。
                 </p>
               </CardContent>
             </Card>
@@ -136,7 +184,6 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            {/* アプローチ3：品質 */}
             <Card className="border-2 hover:shadow-2xl transition-shadow">
               <CardContent className="p-8 space-y-6">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-3xl font-bold text-orange-600">
@@ -144,211 +191,114 @@ export default function Home() {
                 </div>
                 <img 
                   src="/images/factory.jpg" 
-                  alt="GMP認証工場" 
+                  alt="設計" 
                   className="w-full h-48 object-cover rounded-lg"
                 />
                 <h3 className="text-2xl font-bold text-gray-900">
-                  毎日続けられるクオリティアプローチ
+                  プロテイン習慣に特化した設計
                 </h3>
+
                 <p className="text-gray-700 leading-relaxed">
-                  国内GMP認証工場で製造、管理栄養士監修のもと品質を徹底。<br />
-                  毎日安心して続けられる、プロテイン習慣専用の設計です。
+                  一般的な整腸剤が腸全体サポートするのに対し、<br />
+                  プップレスは<strong>タンパク質の消化</strong>や<strong>吸収</strong>に着目。<br />
                 </p>
+
+                <a href="#compare-puppress" className="inline-flex items-center gap-2 text-blue-600 font-semibold">
+                  くわしい比較を見る
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </a>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
-      
-      {/* セクション2: 原因 */}
-      <section className="py-20 bg-white">
+
+      <section id="compare-puppress" className="py-16 bg-white">
         <div className="container">
-          <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-8">
-            プロテイン＝高タンパク＝<span className="text-red-600">高負荷</span>
-          </h2>
-          <div className="max-w-4xl mx-auto mb-12">
-            <img 
-              src="/images/digestive-diagram-ja.png" 
-              alt="消化器官の経路図觢" 
-              className="w-full h-auto rounded-xl shadow-lg"
-            />
+          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+            一般的な整腸ケアとの比較
+          </h3>
+
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="min-w-full text-gray-800">
+              <caption className="sr-only">一般的な整腸ケアとプップレスの比較表</caption>
+              <thead className="bg-blue-50/60">
+                <tr>
+                  <th className="py-3 px-4 text-left font-semibold">比較項目</th>
+                  <th className="py-3 px-4 text-left font-semibold">一般的な整腸剤</th>
+                  <th className="py-3 px-4 text-left font-semibold text-blue-700">プップレス</th>
+                </tr>
+              </thead>
+              <tbody className="[&>tr>td]:align-top">
+                  <tr className="border-t">
+                    <td className="py-3 px-4 font-semibold bg-gray-50">特徴</td>
+                    <td className="py-3 px-4">一般的な整腸サポート</td>
+                    <td className="py-3 px-4 text-blue-700">“プロテイン習慣”に特化した設計</td>
+                  </tr>
+                <tr className="border-t">
+                  <td className="py-3 px-4 font-semibold bg-gray-50">主な成分</td>
+                  <td className="py-3 px-4">乳酸菌</td>
+                  <td className="py-3 px-4 text-blue-700">特許取得乳酸菌（KS-1）＋消化酵素（ダイジェザイム®）</td>
+                </tr>
+                <tr className="border-t">
+                  <td className="py-3 px-4 font-semibold bg-gray-50">ターゲット</td>
+                  <td className="py-3 px-4">高齢者・便秘傾向・胃腸の弱い人
+                </td>
+                  <td className="py-3 px-4 text-blue-700">理想の体型を目指しプロテイン習慣を続ける人</td>
+                </tr>
+                <tr className="border-t">
+                  <td className="py-3 px-4 font-semibold bg-gray-50">アプローチ</td>
+                  <td className="py-3 px-4">広く腸内環境をサポート</td>
+                  <td className="py-3 px-4 text-blue-700">プロテインの消化・吸収をサポートし、腸内バランスを整える</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
-            <p className="leading-relaxed">
-              消化しきれないたんぱく質が腸に届くと、<span className="font-bold text-red-600">悪玉菌が分解しガスが発生</span>。
+
+          <p className="mt-3 text-xs text-gray-500">
+            ※本表は成分・設計方針の比較であり、効果効能を保証するものではありません。
+            DigeZyme®はSabinsa社の登録商標です。
+          </p>
+        </div>
+      </section>
+      {/* ▼▼ 比較表の直下に追加：おすすめ＋ミニCTA ▼▼ */}
+      <div className="mt-14">
+        {/* こんな方におすすめ */}
+        <div className="bg-blue-50/60 rounded-2xl p-8 lg:p-12 text-center space-y-6 border border-blue-100">
+          <h4 className="text-2xl font-bold text-gray-900">こんな方におすすめです！</h4>
+          <ul className="grid sm:grid-cols-2 gap-4 text-lg text-gray-800">
+            <li>💪 プロテインを飲むとお腹が張りやすい方</li>
+            <li>🏋️ トレーニング中の栄養吸収をムダにしたくない方</li>
+            <li>🌿 人工甘味料でお腹の調子が崩れやすい方</li>
+            <li>✨ 腸から体を整えてプロテインを続けたい方</li>
+          </ul>
+
+          {/* ミニCTA */}
+          <div className="pt-8 sm:pt-4">
+            <a
+              href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero"
+              target="_blank" rel="noopener noreferrer"
+              className="block"
+            >
+              <Button
+                size="lg"
+                className="
+                  w-full text-base sm:text-lg py-5 sm:py-6 rounded-2xl leading-relaxed
+                  bg-gradient-to-r from-orange-500 to-red-500
+                  hover:from-orange-600 hover:to-red-600
+                  shadow-lg whitespace-normal break-words leading-snug
+                "
+              >
+                🎁 数量限定！<br className="sm:hidden" />
+                先行発売クーポンをLINEで受け取る
+              </Button>
+            </a>
+            <p className="text-sm text-gray-600 mt-2 text-center sm:text-left">
+              登録後すぐに先行発売情報をお届けします
             </p>
-            <p className="leading-relaxed">
-              人工甘味料の摂取や過剰なたんぱく質も<span className="font-bold">腸バランスを乱す要因</span>に。
-            </p>
           </div>
         </div>
-      </section>
-
-      {/* セクション2の直後に追加：Why Gas（原因の要点整理） */}
-      <section className="py-16 bg-white">
-        <div className="container">
-          <h2 className="text-2xl lg:text-4xl font-bold text-center text-gray-900 mb-6">
-            なぜ<span className="text-blue-600">おなら</span>が増えるの？
-          </h2>
-          <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 text-gray-800">
-            <div className="bg-gray-50 border rounded-xl p-6">
-              <p className="font-bold mb-2">① 未消化たんぱく質が大腸へ</p>
-              <p className="text-sm leading-relaxed">
-                大量摂取などで分解が追いつかないと、たんぱく質の一部が未消化のまま大腸へ届くことがあります。
-              </p>
-            </div>
-            <div className="bg-gray-50 border rounded-xl p-6">
-              <p className="font-bold mb-2">② 腸内細菌が“発酵の材料”に</p>
-              <p className="text-sm leading-relaxed">
-                大腸で腸内細菌が未消化たんぱく質を分解し、ガスやにおいのもととなる物質が生まれることがあります。
-              </p>
-            </div>
-            <div className="bg-gray-50 border rounded-xl p-6">
-              <p className="font-bold mb-2">③ 個人差・食事バランスの影響</p>
-              <p className="text-sm leading-relaxed">
-                繊維や水分量、人工甘味料の種類、腸内環境などによって感じ方は人それぞれ異なります。
-              </p>
-            </div>
-          </div>
-          <p className="text-xs text-gray-500 text-center mt-4">
-            ※一般的な栄養知識にもとづく説明です。個人差があります。
-          </p>
-        </div>
-      </section>
-
-      {/* メカニズム図解：Support（ダイジェザイム＋乳酸菌の“加勢”） */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container">
-          <h2 className="text-2xl lg:text-4xl font-bold text-center text-gray-900 mb-4">
-            だから、<span className="text-blue-600">プップレス</span>はこうサポート
-          </h2>
-          <p className="text-center text-gray-600 mb-10 text-sm">
-            ※以下は一般的メカニズムの説明です（効果効能を保証するものではありません）
-          </p>
-
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
-            
-
-            {/* 右：乳酸菌＋オリゴ糖 */}
-            <div className="bg-white border rounded-2xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                ② 乳酸菌＋オリゴ糖で<span className="text-blue-600">環境づくり</span>
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700 mb-6">
-                <p>・オリゴ糖が善玉菌のエサになり、乳酸菌と併せて腸内バランスをサポート。</p>
-                <p>・毎日のプロテイン習慣を続けやすい環境づくりに配慮。</p>
-              </div>
-              <div className="bg-gray-50 border rounded-xl p-4 text-sm">
-                <div className="flex flex-col md:flex-row items-center gap-3">
-                  <span className="font-semibold">オリゴ糖</span>
-                  <span className="text-2xl">→</span>
-                  <span className="font-semibold text-blue-700">善玉菌のはたらきに加勢</span>
-                  <span className="text-2xl">→</span>
-                  <span className="font-semibold">バランス維持をサポート</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-center text-gray-800 mt-10 text-sm">
-            ポイント：<span className="font-bold">“材料を小さくする”×“環境をととのえる”</span>の二本立てで、プロテイン習慣をやさしく後押し。
-          </p>
-        </div>
-      </section>
-
-      {/* セクション3: 解決策 */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="container">
-          <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-8">
-            "整える"だけじゃない。<br />
-            <span className="text-blue-600">プロテイン習慣に特化</span>したケアを。
-          </h2>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 mt-16">
-            <Card className="bg-gray-100">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-gray-700">一般的な整腸剤</h3>
-                <p className="text-gray-600">腸全体のケア</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-xl">
-              <CardContent className="p-8 space-y-4">
-                <h3 className="text-2xl font-bold">プップレス</h3>
-                <p className="font-semibold text-lg">"プロテイン習慣"で乱れた腸を立て直す専用設計</p>
-                <p className="text-blue-50 leading-relaxed">
-                  タンパク質の消化負担や人工甘味料による腸の乱れに着目し、乳酸菌と酵素で根本からサポートします。
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* セクション4: 3つの特徴 */}
-      <section className="py-20 bg-white">
-        <div className="container">
-          <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-16">
-            プップレスの<span className="text-blue-600">3つの特徴</span>
-          </h2>
-          <div className="grid lg:grid-cols-3 gap-12">
-            <Card className="border-2 hover:shadow-2xl transition-shadow">
-              <CardContent className="p-8 space-y-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl font-bold text-blue-600">
-                  01
-                </div>
-                <img 
-                  src="/images/digezyme.png" 
-                  alt="DigeZyme Multi-Enzyme-Complex" 
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  消化酵素ダイジェザイム®️配合
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  たんぱく質を分解するプロテアーゼを含み、プロテインの消化・吸収をサポート。お腹の張りや不快感の軽減を助けます。
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:shadow-2xl transition-shadow">
-              <CardContent className="p-8 space-y-6">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl font-bold text-green-600">
-                  02
-                </div>
-                <img 
-                  src="/images/probiotics-realistic.jpg" 
-                  alt="乳酸菌プロバイオティクス" 
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  特許取得の乳酸菌＋オリゴ糖配合
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  耐酸性に優れたナノサイズの乳酸菌KS-1が腸に届き、善玉菌をサポート。さらにオリゴ糖が善玉菌のエサとなり、腸内バランスを整えます。
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 hover:shadow-2xl transition-shadow">
-              <CardContent className="p-8 space-y-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-3xl font-bold text-orange-600">
-                  03
-                </div>
-                <img 
-                  src="/images/factory.jpg" 
-                  alt="GMP認証工場" 
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <h3 className="text-2xl font-bold text-gray-900">
-                  国産・GMP認証工場で製造
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  品質と安全性を第一に。国内のGMP認証工場で製造し、毎日安心して続けられる品質を実現しました。
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* セクション5: 成果 (After) */}
       <section className="py-20 bg-gradient-to-b from-green-50 to-white">
@@ -364,6 +314,9 @@ export default function Home() {
             />
           </div>
           <div className="max-w-3xl mx-auto space-y-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-700 border border-green-200 mb-2">
+              <span className="text-sm font-semibold">プロテインと一緒に1日3粒飲むだけ</span>
+            </div>
             <p className="text-xl text-gray-800 leading-relaxed">
               張りや臭いを気にせず、<span className="font-bold text-blue-600">トレーニングに集中</span>できる。
             </p>
@@ -388,7 +341,7 @@ export default function Home() {
             {[
               { icon: Check, title: "GMP認証工場で製造", color: "blue" },
               { icon: Check, title: "管理栄養士監修", color: "green" },
-              { icon: Check, title: "ナノ型乳酸菌（エビデンス取得）", color: "orange" }
+              { icon: Check, title: "特許取得のナノ型乳酸菌", color: "orange" }
             ].map((item, index) => (
               <Card key={index} className="border-2 hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center space-y-4">
@@ -496,24 +449,38 @@ export default function Home() {
               今なら<span className="text-red-600">数量限定</span>の<br />
               先行キャンペーン中！
             </h2>
-            <div className="bg-white rounded-2xl shadow-2xl p-12 space-y-8">
-              <div className="space-y-4">
-                <p className="text-gray-600 text-xl line-through">通常価格 ¥3,480</p>
-                <div className="flex items-center justify-center gap-4">
-                  <span className="text-6xl font-bold text-red-600">¥2,980</span>
-                  <span className="text-2xl text-gray-700">（税込）</span>
-                </div>
-                <p className="text-red-600 font-bold text-xl">¥500 OFF</p>
-              </div>
-              <a href="https://lin.ee/fnXZ2bk" target="_blank" rel="noopener noreferrer" className="block">
-                <Button 
-                  size="lg" 
-                  className="w-full text-2xl py-8 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-xl"
+
+              <div className="bg-white rounded-2xl shadow-2xl p-12 sm:p-16 space-y-10">
+
+              <a
+                href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=footer"
+                target="_blank" rel="noopener noreferrer" className="block"
+              >
+                <Button
+                  size="lg"
+                  className="
+                    !h-auto min-h-16 w-full
+                    px-5 sm:px-8 py-4 sm:py-5
+                    text-base sm:text-lg font-semibold text-white text-center
+                    !whitespace-normal break-words leading-snug
+                    rounded-2xl
+                    bg-gradient-to-r from-orange-500 to-red-500
+                    hover:from-orange-600 hover:to-red-600
+                    shadow-lg
+                  "
                 >
-                  先行開始をLINEで受け取る
+                  <span className="block sm:ml-2 sm:inline">🎁 数量限定！先行発売クーポンをLINEで受け取る</span>
                 </Button>
               </a>
-              <div className="flex justify-center gap-8 text-sm text-gray-600 pt-4">
+
+              {/* 安心材料の箇条書き（小さめ）— 任意 */}
+              <ul className="text-sm text-gray-600 grid sm:grid-cols-3 gap-2 pt-2">
+                <li>・友だち登録は無料</li>
+                <li>・通知はいつでも解除OK</li>
+                <li>・数量達し次第終了</li>
+              </ul>
+
+              <div className="flex justify-center gap-8 text-sm text-gray-600 pt-6">
                 <a href="#" className="hover:text-blue-600 underline">配送について</a>
                 <a href="#" className="hover:text-blue-600 underline">返品について</a>
                 <a href="#" className="hover:text-blue-600 underline">よくある質問</a>
