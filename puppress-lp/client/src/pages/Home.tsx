@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Check } from "lucide-react";
+import { handleLineClick } from "@/lib/utils";
 
 export default function Home() {
   const scrollToCTA = () => {
@@ -37,7 +38,7 @@ export default function Home() {
                   href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=firstview"
                   target="_blank" rel="noopener noreferrer"
                   className="block"
-                  onClick={() => console.log('あああ')}
+                  onClick={handleLineClick}
                 >
                   <Button
                     size="lg"
@@ -280,7 +281,7 @@ export default function Home() {
               href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=middle"
               target="_blank" rel="noopener noreferrer"
               className="block"
-              onClick={() => console.log('あああ')}
+              onClick={handleLineClick}
             >
               <Button
                 size="lg"
@@ -457,7 +458,7 @@ export default function Home() {
               <a
                 href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=footer"
                 target="_blank" rel="noopener noreferrer" className="block"
-                onClick={() => console.log('あああ')}
+                onClick={handleLineClick}
               >
                 <Button
                   size="lg"
