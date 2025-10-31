@@ -34,7 +34,7 @@ export default function Home() {
               {/* ✅ レスポンシブ対応したCTA */}
               <div className="pt-8 sm:pt-4">
                 <a
-                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero"
+                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=firstview"
                   target="_blank" rel="noopener noreferrer"
                   className="block"
                 >
@@ -276,7 +276,7 @@ export default function Home() {
           {/* ミニCTA */}
           <div className="pt-8 sm:pt-4">
             <a
-              href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero"
+              href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=middle"
               target="_blank" rel="noopener noreferrer"
               className="block"
             >
