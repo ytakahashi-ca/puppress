@@ -9,6 +9,26 @@
       gtag('js', new Date());
 
       gtag('config', 'G-EKZWS6X6BG');
+
+      // スクロール深度トラッキング
+      const scrollThresholds = [25, 50, 75, 90];
+      let sentThresholds = new Set();
+
+      window.addEventListener('scroll', () => {
+        const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+
+        scrollThresholds.forEach(threshold => {
+          if (scrollPercent >= threshold && !sentThresholds.has(threshold)) {
+            gtag('event', 'scroll_depth', {
+              event_category: 'engagement',
+              event_label: `${threshold}%`,
+              value: threshold
+            });
+            sentThresholds.add(threshold);
+            console.log(`✅ ${threshold}% 到達イベント送信`);
+          }
+        });
+      });
     </script>
     <meta charset="UTF-8" />
     <meta

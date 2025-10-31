@@ -38,7 +38,11 @@ export default function Home() {
                   href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=firstview"
                   target="_blank" rel="noopener noreferrer"
                   className="block"
-                  onClick={handleLineClick}
+                    onClick={() => {
+                      gtag('event', 'cta_click', {
+                        event_category: 'engagement',
+                        event_label: 'firstview_line_click'});
+                    }}
                 >
                   <Button
                     size="lg"
@@ -281,7 +285,11 @@ export default function Home() {
               href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=middle"
               target="_blank" rel="noopener noreferrer"
               className="block"
-              onClick={handleLineClick}
+              onClick={() => {
+                gtag('event', 'cta_click', {
+                  event_category: 'engagement',
+                  event_label: 'niddle_line_click'});
+              }}
             >
               <Button
                 size="lg"
@@ -458,7 +466,11 @@ export default function Home() {
               <a
                 href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=footer"
                 target="_blank" rel="noopener noreferrer" className="block"
-                onClick={handleLineClick}
+                onClick={() => {
+                  gtag('event', 'cta_click', {
+                    event_category: 'engagement',
+                    event_label: 'footer_line_click'});
+                }}
               >
                 <Button
                   size="lg"
