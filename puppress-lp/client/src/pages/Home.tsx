@@ -37,6 +37,7 @@ export default function Home() {
                   href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=firstview"
                   target="_blank" rel="noopener noreferrer"
                   className="block"
+                  onClick={() => console.log('あああ')}
                 >
                   <Button
                     size="lg"
@@ -279,6 +280,7 @@ export default function Home() {
               href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=middle"
               target="_blank" rel="noopener noreferrer"
               className="block"
+              onClick={() => console.log('あああ')}
             >
               <Button
                 size="lg"
@@ -455,6 +457,7 @@ export default function Home() {
               <a
                 href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=footer"
                 target="_blank" rel="noopener noreferrer" className="block"
+                onClick={() => console.log('あああ')}
               >
                 <Button
                   size="lg"
