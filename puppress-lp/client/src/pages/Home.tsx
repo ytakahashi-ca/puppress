@@ -11,71 +11,84 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
-      <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
-        <div className="container max-w-6xl"> {/* 追加: 最大幅を控えめに */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 max-w-xl"> {/* 追加: 左カラムの行幅を制限 */}
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                プロテインを飲むと<br className="sm:hidden" />
-                <span className="text-blue-600">お腹が張る</span>・<br className="sm:hidden" />
-                <span className="text-blue-600">臭いが気になる</span><br className="sm:hidden" />
-                そんな方へ。
+      <section class="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
+        <div class="container max-w-6xl">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 max-w-xl">
+              <!-- 見出し -->
+              <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-[1.15] tracking-tight">
+                その“張り・ニオイ”、<br />
+                <span class="text-blue-600">消化しきれないタンパク質</span>が原因かも。
               </h1>
 
-              <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                “プロテイン習慣特化型“<br />
-                <span className="font-bold text-blue-600">消化サポート × 乳酸菌サプリメント</span>
+              <!-- サブコピー -->
+              <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                プロテイン後の不快感を、<br />
+                <span class="font-bold text-blue-600">消化酵素×乳酸菌</span>で“腸から快適”に。
               </p>
 
-              <p className="text-lg text-gray-700">
-                たんぱく質の分解をサポートし、<br />
-                理想の姿を目指すあなたの味方になります！
-              </p>
+              <!-- ベネフィット3点 -->
+              <ul class="list-none pl-0 space-y-2 text-lg text-gray-800">
+                <li>💪 張り・ゴロゴロを感じにくい</li>
+                <li>🏋️ タンパク質の吸収をムダにしにくい</li>
+                <li>🌿 腸から整えてプロテインを続けやすい</li>
+              </ul>
 
-              {/* ✅ レスポンシブ対応したCTA */}
-              <div className="pt-8 sm:pt-4">
+              <!-- 安心タグ -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">国産</span>
+                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GMP認証</span>
+                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">管理栄養士監修</span>
+              </div>
+
+              <!-- CTA -->
+              <div class="pt-8 sm:pt-4">
                 <a
-                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=firstview"
-                  target="_blank" rel="noopener noreferrer"
-                  className="block"
-                    onClick={() => {
-                      gtag('event', 'cta_click', {
-                        event_category: 'engagement',
-                        event_label: 'firstview_line_click'});
-                    }}
+                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_noimage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onclick="window.gtag && window.gtag('event', 'cta_click', {location:'hero', cta_id:'line_coupon_hero_noimage'})"
+                  class="block"
                 >
-                  <Button
-                    size="lg"
-                    className="
-                      w-full text-base sm:text-lg py-5 sm:py-6 rounded-2xl leading-relaxed
-                      bg-gradient-to-r from-orange-500 to-red-500
-                      hover:from-orange-600 hover:to-red-600
-                      shadow-lg whitespace-normal break-words leading-snug
-                    "
+                  <button
+                    class="w-full text-lg py-5 sm:py-6 rounded-2xl font-semibold text-white text-center
+                           bg-gradient-to-r from-orange-500 to-red-500
+                           hover:from-orange-600 hover:to-red-600
+                           shadow-lg leading-snug transition-colors duration-300"
                   >
-                    🎁 数量限定！<br className="sm:hidden" />
-                    先行発売クーポンをLINEで受け取る
-                  </Button>
+                    🎁 先行発売クーポンをLINEで受け取る<span aria-hidden="true"> →</span>
+                  </button>
                 </a>
-                <p className="text-sm text-gray-600 mt-2 text-center sm:text-left">
-                  登録後すぐに先行発売情報をお届けします
+                <p class="text-sm text-gray-600 mt-2 text-center sm:text-left">
+                  登録無料・通知OFF可・数量限定
                 </p>
               </div>
-            </div>
 
-            <div className="relative">
-              <img
-                src="/images/product-package.png"
-                alt="PUPPRESS プロテイン習慣サポートサプリメント"
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm border rounded-full px-4 py-2 text-sm shadow">
-                国産・GMP認証工場 / 管理栄養士監修
+              <!-- スクロール誘導 -->
+              <div class="pt-6 text-center sm:text-left">
+                <button
+                  onclick="document.getElementById('compare-puppress')?.scrollIntoView({ behavior: 'smooth' })"
+                  class="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
+                >
+                  <span>“なぜ張るのか”を詳しく見る</span>
+                  <span class="animate-bounce motion-reduce:animate-none">▼</span>
+                </button>
               </div>
             </div>
+
+            <!-- 右カラム（余白確保用） -->
+            <div class="hidden lg:block"></div>
           </div>
         </div>
       </section>
+
+      <script>
+        // Heroインプレッションを1回だけ送信（オプション）
+        if (!window.__heroImpSent) {
+          window.gtag?.('event', 'hero_impression', { section: 'hero_noimage_v1' });
+          window.__heroImpSent = true;
+        }
+      </script>
 
       {/* セクション1: 悩み提示 */}
       <section className="py-20 bg-gray-50">
