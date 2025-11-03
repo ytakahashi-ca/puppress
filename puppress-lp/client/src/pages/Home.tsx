@@ -11,76 +11,93 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
-      <section class="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
-        <div class="container max-w-6xl">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8 max-w-xl">
-              <!-- 見出し -->
-              <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-[1.15] tracking-tight">
-                その“張り・ニオイ”、<br />
-                <span class="text-blue-600">消化しきれないタンパク質</span>が原因かも。
-              </h1>
+                <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
+                  <div className="container max-w-6xl">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                      <div className="space-y-8 max-w-xl">
+                        {/* 見出し */}
+                        <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-[1.15] tracking-tight">
+                          その“張り・ニオイ”、<br />
+                          <span className="text-blue-600">消化しきれないタンパク質</span>が原因かも。
+                        </h1>
 
-              <!-- サブコピー -->
-              <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                プロテイン後の不快感を、<br />
-                <span class="font-bold text-blue-600">消化酵素×乳酸菌</span>で“腸から快適”に。
-              </p>
+                        {/* サブコピー */}
+                        <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
+                          プロテイン後の不快感を、<br />
+                          <span className="font-bold text-blue-600">消化酵素×乳酸菌</span>で“腸から快適”に。
+                        </p>
 
-              <!-- ベネフィット3点 -->
-              <ul class="list-none pl-0 space-y-2 text-lg text-gray-800">
-                <li>💪 張り・ゴロゴロを感じにくい</li>
-                <li>🏋️ タンパク質の吸収をムダにしにくい</li>
-                <li>🌿 腸から整えてプロテインを続けやすい</li>
-              </ul>
+                        {/* ベネフィット3点 */}
+                        <ul className="list-none pl-0 space-y-2 text-lg text-gray-800">
+                          <li>💪 張り・ゴロゴロを感じにくい</li>
+                          <li>🏋️ タンパク質の吸収をムダにしにくい</li>
+                          <li>🌿 腸から整えてプロテインを続けやすい</li>
+                        </ul>
 
-              <!-- 安心タグ -->
-              <div class="flex flex-wrap gap-2 pt-2">
-                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">国産</span>
-                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GMP認証</span>
-                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">管理栄養士監修</span>
-              </div>
+                        {/* 安心タグ */}
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          {["国産", "GMP認証", "管理栄養士監修"].map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-              <!-- CTA -->
-              <div class="pt-8 sm:pt-4">
-                <a
-                  href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_noimage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onclick="window.gtag && window.gtag('event', 'cta_click', {location:'hero', cta_id:'line_coupon_hero_noimage'})"
-                  class="block"
-                >
-                  <button
-                    class="w-full text-lg py-5 sm:py-6 rounded-2xl font-semibold text-white text-center
-                           bg-gradient-to-r from-orange-500 to-red-500
-                           hover:from-orange-600 hover:to-red-600
-                           shadow-lg leading-snug transition-colors duration-300"
-                  >
-                    🎁 先行発売クーポンをLINEで受け取る<span aria-hidden="true"> →</span>
-                  </button>
-                </a>
-                <p class="text-sm text-gray-600 mt-2 text-center sm:text-left">
-                  登録無料・通知OFF可・数量限定
-                </p>
-              </div>
+                        {/* CTA */}
+                        <div className="pt-8 sm:pt-4">
+                          <a
+                            href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_noimage"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => {
+                              // GA4イベント
+                              window.gtag?.("event", "cta_click", {
+                                location: "hero",
+                                cta_id: "line_coupon_hero_noimage",
+                              });
+                            }}
+                            className="block"
+                          >
+                            <button
+                              className="w-full text-lg py-5 sm:py-6 rounded-2xl font-semibold text-white text-center
+                                         bg-gradient-to-r from-orange-500 to-red-500
+                                         hover:from-orange-600 hover:to-red-600
+                                         shadow-lg leading-snug transition-colors duration-300"
+                            >
+                              🎁 先行発売クーポンをLINEで受け取る<span aria-hidden="true"> →</span>
+                            </button>
+                          </a>
+                          <p className="text-sm text-gray-600 mt-2 text-center sm:text-left">
+                            登録無料・通知OFF可・数量限定
+                          </p>
+                        </div>
 
-              <!-- スクロール誘導 -->
-              <div class="pt-6 text-center sm:text-left">
-                <button
-                  onclick="document.getElementById('compare-puppress')?.scrollIntoView({ behavior: 'smooth' })"
-                  class="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
-                >
-                  <span>“なぜ張るのか”を詳しく見る</span>
-                  <span class="animate-bounce motion-reduce:animate-none">▼</span>
-                </button>
-              </div>
-            </div>
+                        {/* スクロール誘導 */}
+                        <div className="pt-6 text-center sm:text-left">
+                          <button
+                            onClick={() =>
+                              document.getElementById("compare-puppress")?.scrollIntoView({
+                                behavior: "smooth",
+                              })
+                            }
+                            className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
+                          >
+                            <span>“なぜ張るのか”を詳しく見る</span>
+                            <span className="animate-bounce motion-reduce:animate-none">▼</span>
+                          </button>
+                        </div>
+                      </div>
 
-            <!-- 右カラム（余白確保用） -->
-            <div class="hidden lg:block"></div>
-          </div>
-        </div>
-      </section>
+                      {/* 右カラム（余白確保用） */}
+                      <div className="hidden lg:block"></div>
+                    </div>
+                  </div>
+
+                  {/* Heroインプレッション（初回のみ送信） */}
+                </section>
 
       <script>
         // Heroインプレッションを1回だけ送信（オプション）
