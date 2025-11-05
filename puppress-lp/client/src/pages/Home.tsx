@@ -7,16 +7,12 @@ declare global {
     gtag?: (...args: any[]) => void;
   }
 }
-
 export default function Home() {
-  const scrollToCTA = () => {
-    document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
       <section
+        id="hero"
         data-hero
         className="
           relative overflow-hidden
@@ -110,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* セクション1: 悩み提示 */}
-      <section className="py-20 bg-gray-50">
+      <section id="problem" className="py-20 bg-gray-50">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-16">
             プロテインを飲んだあと、<br className="lg:hidden" />
@@ -140,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* セクション2: 原因 */}
-      <section className="py-20 bg-white">
+      <section id="cause" className="py-20 bg-white">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-8">
             プロテイン＝高タンパク＝<span className="text-red-600">高負荷</span>
@@ -164,7 +160,7 @@ export default function Home() {
       </section>
 
 
-      <section className="py-20 bg-white">
+      <section id="approaches" className="py-20 bg-white">
         <div className="container">
           {/* タイトル＆サブタイトル */}
           <h2 className="text-4xl lg:text-6xl font-extrabold text-center text-gray-900 mb-4">
@@ -344,7 +340,7 @@ export default function Home() {
       </div>
 
       {/* セクション5: 成果 (After) */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section id="after" className="py-20 bg-gradient-to-b from-green-50 to-white">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-16">
             不安なく<span className="text-green-600">プロテインを続けられる</span>毎日へ
@@ -374,7 +370,7 @@ export default function Home() {
       </section>
 
       {/* セクション6: 信頼・品質 */}
-      <section className="py-20 bg-white">
+      <section id="quality" className="py-20 bg-white">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-8">
             国産・GMP認証。<br />
@@ -403,7 +399,7 @@ export default function Home() {
       </section>
 
       {/* 管理栄養士監修セクション */}
-      <section className="py-20 bg-blue-50">
+      <section id="nutritionist" className="py-20 bg-blue-50">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-16">
             <span className="text-blue-600">管理栄養士監修</span>コメント
@@ -441,7 +437,7 @@ export default function Home() {
       </section>
 
       {/* セクション7: ユーザーの声 */}
-      <section className="py-20 bg-gray-50">
+      <section id="voices" className="py-20 bg-gray-50">
         <div className="container">
           <h2 className="text-3xl lg:text-5xl font-bold text-center text-gray-900 mb-4">
             実際の<span className="text-green-600">ご利用者様</span>からの声
