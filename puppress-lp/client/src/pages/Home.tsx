@@ -17,58 +17,96 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
       <section
-        className="relative overflow-hidden"
-        style={{
-          // 生成画像を /public/images に置いてパスを変えてね
-          backgroundImage: "url('/images/hero-mobile.png')",
-        }}
+        data-hero
+        className="
+          relative overflow-hidden
+          min-h-[clamp(560px,72vh,760px)]
+          bg-[url('/images/hero1.png')] bg-no-repeat bg-cover
+          bg-center
+          lg:bg-none  /* ← PCでは背景画像を無効化して2カラムに切替 */
+          py-16
+        "
       >
-        {/* 背景画像の表示調整 */}
+        {/* モバイル：左→右の薄い白グラデ + 下へフェード */}
         <div
-          className="
-            absolute inset-0 bg-cover bg-no-repeat
-            bg-center sm:bg-right
-            "
-          // ↑ モバイルは中央、横幅広い画面では右寄せに
-          // CSSの background-image は親<section>の style で指定済み
+          className="pointer-events-none absolute inset-0 lg:hidden
+                     bg-gradient-to-r from-white/60 via-white/30 to-transparent"
+          style={{
+            WebkitMaskImage:
+              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 58%, rgba(0,0,0,.35) 82%, rgba(0,0,0,0) 100%)',
+            maskImage:
+              'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,.92) 58%, rgba(0,0,0,.35) 82%, rgba(0,0,0,0) 100%)',
+          }}
         />
 
-        {/* 読みやすさ用の薄いグラデ（文字の下に敷く） */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent sm:from-white/80" />
+        {/* コンテンツ：モバイルは縦、PCは2カラム */}
+        <div className="relative z-10 container max-w-6xl px-6 sm:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* 左：テキスト */}
+            <div className="max-w-xl space-y-6">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-gray-900">
+                その“張り・ニオイ”、<br />
+                <span className="text-blue-600">消化しきれないタンパク質</span>が原因かも。
+              </h1>
+            </div>
 
-        {/* コンテンツ */}
-        <div className="relative z-10 container max-w-6xl py-20 lg:py-32">
-          <div className="max-w-xl space-y-6">
-            <h1 className="text-4xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-gray-900">
-              その“張り・ニオイ”、<br />
-              <span className="text-blue-600">消化しきれないタンパク質</span>が原因かも。
-            </h1>
-
-            {/* 必要ならサブ1行（省略可） */}
-            {/* <p className="text-lg text-gray-700">
-              消化酵素×乳酸菌で、プロテイン習慣を“腸から快適”に。
-            </p> */}
-
-            <a
-              href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_bg"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                window.gtag?.("event", "cta_click", {
-                  location: "hero_bg",
-                  cta_id: "line_coupon_hero",
-                })
-              }
-              className="inline-block"
-            >
-              <button className="px-8 py-4 rounded-2xl text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg">
-                🎁 LINEで先行クーポンを受け取る →
-              </button>
-            </a>
-
-            <p className="text-sm text-gray-600">登録無料・通知OFF可・数量限定</p>
+            {/* 右：PCのみヒーロー画像（トリミングされない） */}
+            <div className="hidden lg:flex justify-end">
+              <img
+                src="/images/hero1.png"
+                alt="PupPressとプロテインシェイカー"
+                className="max-w-[520px] w-full h-auto object-contain"
+                loading="eager"
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
+
+        {/* CTA：モバイルは下固定、PCはテキスト下に通常配置 */}
+        {/* モバイル（下固定） */}
+        <div className="lg:hidden absolute inset-x-0 bottom-6 z-20 px-6 pb-[env(safe-area-inset-bottom)]">
+          <a
+            href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_bg"
+            target="_blank" rel="noopener noreferrer"
+            onClick={() => {
+              window.gtag?.('event', 'cta_click', {
+                event_category: 'engagement',
+                event_label: 'hero_line_click'});
+            }}
+            className="block max-w-md mx-auto"
+          >
+            <button className="w-full px-8 py-4 rounded-2xl text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg">
+              🎁 LINEで先行クーポンを受け取る →
+            </button>
+          </a>
+          <p className="mt-2 text-center text-sm text-gray-600">登録無料・通知OFF可・数量限定</p>
+        </div>
+
+        {/* PC（テキスト下に通常配置） */}
+        <div className="hidden lg:block relative z-10 container max-w-6xl px-6 sm:px-8 mt-6">
+          <a
+            href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_bg"
+            target="_blank" rel="noopener noreferrer"
+            onClick={() => {
+              window.gtag?.('event', 'cta_click', {
+                event_category: 'engagement',
+                event_label: 'hero_pc_line_click'});
+            }}
+            className="inline-block"
+          >
+            <button className="px-8 py-4 rounded-2xl text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg">
+              🎁 LINEで先行クーポンを受け取る →
+            </button>
+          </a>
+          <p className="text-sm text-gray-600 mt-2">登録無料・通知OFF可・数量限定</p>
+        </div>
+
+        {/* 不要なマーカー対策（グレーの●消し） */}
+        <style>{`
+          [data-hero] ul { list-style: none; padding-left: 0; }
+          [data-hero] li::marker { content: none; }
+        `}</style>
       </section>
 
       {/* セクション1: 悩み提示 */}
