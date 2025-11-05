@@ -2,6 +2,12 @@ import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Check } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export default function Home() {
   const scrollToCTA = () => {
     document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' });
@@ -274,7 +280,7 @@ export default function Home() {
               target="_blank" rel="noopener noreferrer"
               className="block"
               onClick={() => {
-                gtag('event', 'cta_click', {
+                window.gtag?.('event', 'cta_click', {
                   event_category: 'engagement',
                   event_label: 'niddle_line_click'});
               }}
@@ -455,7 +461,7 @@ export default function Home() {
                 href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=footer"
                 target="_blank" rel="noopener noreferrer" className="block"
                 onClick={() => {
-                  gtag('event', 'cta_click', {
+                  window.gtag?.('event', 'cta_click', {
                     event_category: 'engagement',
                     event_label: 'footer_line_click'});
                 }}
