@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Check } from "lucide-react";
-import { handleLineClick } from "@/lib/utils";
 
 export default function Home() {
   const scrollToCTA = () => {
@@ -11,101 +10,60 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* ファーストビュー */}
-                <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
-                  <div className="container max-w-6xl">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                      <div className="space-y-8 max-w-xl">
-                        {/* 見出し */}
-                        <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-[1.15] tracking-tight">
-                          その“張り・ニオイ”、<br />
-                          <span className="text-blue-600">消化しきれないタンパク質</span>が原因かも。
-                        </h1>
+      <section
+        className="relative overflow-hidden"
+        style={{
+          // 生成画像を /public/images に置いてパスを変えてね
+          backgroundImage: "url('/images/hero-mobile.png')",
+        }}
+      >
+        {/* 背景画像の表示調整 */}
+        <div
+          className="
+            absolute inset-0 bg-cover bg-no-repeat
+            bg-center sm:bg-right
+            "
+          // ↑ モバイルは中央、横幅広い画面では右寄せに
+          // CSSの background-image は親<section>の style で指定済み
+        />
 
-                        {/* サブコピー */}
-                        <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                          プロテイン後の不快感を、<br />
-                          <span className="font-bold text-blue-600">消化酵素×乳酸菌</span>で“腸から快適”に。
-                        </p>
+        {/* 読みやすさ用の薄いグラデ（文字の下に敷く） */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent sm:from-white/80" />
 
-                        {/* ベネフィット3点 */}
-                        <ul className="list-none pl-0 space-y-2 text-lg text-gray-800">
-                          <li>💪 張り・ゴロゴロを感じにくい</li>
-                          <li>🏋️ タンパク質の吸収をムダにしにくい</li>
-                          <li>🌿 腸から整えてプロテインを続けやすい</li>
-                        </ul>
+        {/* コンテンツ */}
+        <div className="relative z-10 container max-w-6xl py-20 lg:py-32">
+          <div className="max-w-xl space-y-6">
+            <h1 className="text-4xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-gray-900">
+              その“張り・ニオイ”、<br />
+              <span className="text-blue-600">消化しきれないタンパク質</span>が原因かも。
+            </h1>
 
-                        {/* 安心タグ */}
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {["国産", "GMP認証", "管理栄養士監修"].map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
+            {/* 必要ならサブ1行（省略可） */}
+            {/* <p className="text-lg text-gray-700">
+              消化酵素×乳酸菌で、プロテイン習慣を“腸から快適”に。
+            </p> */}
 
-                        {/* CTA */}
-                        <div className="pt-8 sm:pt-4">
-                          <a
-                            href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_noimage"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => {
-                              // GA4イベント
-                              window.gtag?.("event", "cta_click", {
-                                location: "hero",
-                                cta_id: "line_coupon_hero_noimage",
-                              });
-                            }}
-                            className="block"
-                          >
-                            <button
-                              className="w-full text-lg py-5 sm:py-6 rounded-2xl font-semibold text-white text-center
-                                         bg-gradient-to-r from-orange-500 to-red-500
-                                         hover:from-orange-600 hover:to-red-600
-                                         shadow-lg leading-snug transition-colors duration-300"
-                            >
-                              🎁 先行発売クーポンをLINEで受け取る<span aria-hidden="true"> →</span>
-                            </button>
-                          </a>
-                          <p className="text-sm text-gray-600 mt-2 text-center sm:text-left">
-                            登録無料・通知OFF可・数量限定
-                          </p>
-                        </div>
+            <a
+              href="https://lin.ee/fnXZ2bk?utm_source=lp&utm_medium=cta&utm_campaign=hero_bg"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                window.gtag?.("event", "cta_click", {
+                  location: "hero_bg",
+                  cta_id: "line_coupon_hero",
+                })
+              }
+              className="inline-block"
+            >
+              <button className="px-8 py-4 rounded-2xl text-lg font-semibold text-white bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-lg">
+                🎁 LINEで先行クーポンを受け取る →
+              </button>
+            </a>
 
-                        {/* スクロール誘導 */}
-                        <div className="pt-6 text-center sm:text-left">
-                          <button
-                            onClick={() =>
-                              document.getElementById("compare-puppress")?.scrollIntoView({
-                                behavior: "smooth",
-                              })
-                            }
-                            className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"
-                          >
-                            <span>“なぜ張るのか”を詳しく見る</span>
-                            <span className="animate-bounce motion-reduce:animate-none">▼</span>
-                          </button>
-                        </div>
-                      </div>
-
-                      {/* 右カラム（余白確保用） */}
-                      <div className="hidden lg:block"></div>
-                    </div>
-                  </div>
-
-                  {/* Heroインプレッション（初回のみ送信） */}
-                </section>
-
-      <script>
-        // Heroインプレッションを1回だけ送信（オプション）
-        if (!window.__heroImpSent) {
-          window.gtag?.('event', 'hero_impression', { section: 'hero_noimage_v1' });
-          window.__heroImpSent = true;
-        }
-      </script>
+            <p className="text-sm text-gray-600">登録無料・通知OFF可・数量限定</p>
+          </div>
+        </div>
+      </section>
 
       {/* セクション1: 悩み提示 */}
       <section className="py-20 bg-gray-50">
